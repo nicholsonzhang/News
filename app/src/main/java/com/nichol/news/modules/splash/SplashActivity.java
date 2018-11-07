@@ -1,5 +1,9 @@
-package com.nichol.news;
+package com.nichol.news.modules.splash;
 
+
+import com.nichol.news.AppBaseActivity;
+import com.nichol.news.MainActivity;
+import com.nichol.news.R;
 
 public class SplashActivity extends AppBaseActivity {
     @Override
