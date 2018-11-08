@@ -7,18 +7,9 @@
 
 
 
-    <LinearLayout
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:orientation="vertical">
-
-        <TextView
-            android:id="@+id/hello"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="初始化News"/>
-
-
-    </LinearLayout>
+<ImageView
+    android:id="@+id/show_image"
+    android:layout_width="200dp"
+    android:layout_height="100dp" />
 
 </LinearLayout>
