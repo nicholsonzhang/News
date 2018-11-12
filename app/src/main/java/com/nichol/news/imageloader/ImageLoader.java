@@ -3,8 +3,6 @@ package com.nichol.news.imageloader;
 import android.content.Context;
 import android.widget.ImageView;
 
-import com.bumptech.glide.Glide;
-
 public class ImageLoader {
 
     private ImageLoader() {
@@ -20,14 +18,14 @@ public class ImageLoader {
     }
 
     public void load(Context context, String url, ImageView imageView) {
-        Glide.with(context).load(url).into(imageView);
+        GlideApp.with(context).load(url).into(imageView);
     }
 
     public void loadCircle(Context context, String url, ImageView imageView) {
         GlideApp.with(context).load(url).transform(new GlideCircleTransform()).into(imageView);
     }
 
-    public void loadRound(Context context, String url, ImageView imageView){
+    public void loadRound(Context context, String url, ImageView imageView) {
         GlideApp.with(context).load(url).transform(new GlideRoundTransform(context)).into(imageView);
     }
 }

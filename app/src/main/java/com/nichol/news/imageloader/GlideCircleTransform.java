@@ -12,14 +12,28 @@ import com.bumptech.glide.load.resource.bitmap.BitmapTransformation;
 import java.security.MessageDigest;
 
 public class GlideCircleTransform extends BitmapTransformation {
+
+    private static final String ID = "com.nichol.news.imageloader.GlideCircleTransform";
+    private static final byte[] ID_BYTES = ID.getBytes(CHARSET);
+
     @Override
     protected Bitmap transform(@NonNull BitmapPool pool, @NonNull Bitmap toTransform, int outWidth, int outHeight) {
-        return circleCrop(pool,toTransform);
+        return circleCrop(pool, toTransform);
     }
 
     @Override
     public void updateDiskCacheKey(MessageDigest messageDigest) {
+        messageDigest.update(ID_BYTES);
+    }
 
+    @Override
+    public boolean equals(Object obj) {
+        return obj instanceof GlideCircleTransform;
+    }
+
+    @Override
+    public int hashCode() {
+        return ID.hashCode();
     }
 
     private Bitmap circleCrop(BitmapPool pool, Bitmap source) {

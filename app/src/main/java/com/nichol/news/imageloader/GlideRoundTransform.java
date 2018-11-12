@@ -19,6 +19,8 @@ import java.security.MessageDigest;
  */
 
 public class GlideRoundTransform extends BitmapTransformation {
+    private static final String ID = "com.nichol.news.imageloader.GlideRoundTransform";
+    private static final byte[] ID_BYTES = ID.getBytes(CHARSET);
 
     private int radius;
 
@@ -48,7 +50,18 @@ public class GlideRoundTransform extends BitmapTransformation {
     }
 
     @Override
+    public int hashCode() {
+        return ID.hashCode();
+    }
+
+    @Override
+    public boolean equals(Object obj) {
+        return obj instanceof GlideRoundTransform;
+    }
+
+    @Override
     public void updateDiskCacheKey(MessageDigest messageDigest) {
+        messageDigest.update(ID_BYTES);
 
     }
 }
